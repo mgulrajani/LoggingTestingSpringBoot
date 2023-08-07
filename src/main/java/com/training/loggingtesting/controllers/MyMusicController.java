@@ -24,9 +24,9 @@ public class MyMusicController {
         }
 
     @GetMapping("/name")
-    public ResponseEntity<MyMusic> getMusicByName(@RequestParam String name) throws MusicNotFoundException {
+    public ResponseEntity<MyMusic> getMusicByName(@RequestParam String name1) throws MusicNotFoundException {
 
-        return ResponseEntity.ok(service.getMusicByName(name));
+        return ResponseEntity.ok(service.getMusicByName(name1));
 
 
     }
