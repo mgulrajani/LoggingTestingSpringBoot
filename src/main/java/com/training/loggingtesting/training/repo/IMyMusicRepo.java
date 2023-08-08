@@ -1,6 +1,7 @@
 package com.training.loggingtesting.training.repo;
 
 import com.training.loggingtesting.training.entities.MyMusic;
+import org.springframework.data.mongodb.repository.Aggregation;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
@@ -13,5 +14,10 @@ public interface IMyMusicRepo extends MongoRepository<MyMusic, String> {
 
     @Query(value="{genre:'?0'}",fields="{'name':1,'artists':1}")
     List<MyMusic> findAll(String genre);
+
+    @Aggregation(pipeline = {
+            "{'$group':{_id:'$genre',total:{$sum:1}}}"
+    })
+    List<MyMusic> findByGenreTotal();
 
 }

@@ -39,6 +39,13 @@ public class MyMusicController {
     }
 
 
+    @GetMapping("/genre")
+    public ResponseEntity<List<MyMusic>> getByGenre(){
+
+        return  ResponseEntity.ok(service.getMusicByGenre());
+
+    }
+
 
 
 

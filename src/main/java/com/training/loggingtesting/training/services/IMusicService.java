@@ -16,6 +16,7 @@ public interface IMusicService {
 
     public MyMusic updateMusicData(String name , MyMusic movieData) throws MusicNotFoundException;
 
+    public List<MyMusic> getMusicByGenre();
 
 
 }

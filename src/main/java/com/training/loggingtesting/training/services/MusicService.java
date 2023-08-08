@@ -51,4 +51,9 @@ public class MusicService implements IMusicService {
         repo.save(music);
         return music;
     }
+
+    @Override
+    public List<MyMusic> getMusicByGenre() {
+        return repo.findByGenreTotal();
+    }
 }
