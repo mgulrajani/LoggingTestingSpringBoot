@@ -2,18 +2,23 @@ package com.training.loggingtesting.ordersdemo;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
-@Document("orders")
+@Document("customerorders")
 public class Order {
+
     @Id
     private String id;
     //customer,product,year,country,quantity,price,sales
     private String customer;
     private String product;
+    @Field("Country")
     private String country;
     private int year;
     private double price;
     private int quantity;
+
+    @Field("Revenue")
     private double sales;
 
     public String getId() {

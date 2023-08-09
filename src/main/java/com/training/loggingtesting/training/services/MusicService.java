@@ -5,6 +5,9 @@ import com.training.loggingtesting.training.exceptions.MusicNotFoundException;
 import com.training.loggingtesting.training.repo.IMyMusicRepo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -56,4 +59,13 @@ public class MusicService implements IMusicService {
     public List<MyMusic> getMusicByGenre() {
         return repo.findByGenreTotal();
     }
+
+    @Override
+    public List<MyMusic> findAllPages(int pageno, int size) {
+       Pageable pageable = PageRequest.of(pageno,size);
+       Page<MyMusic> page = repo.findAll(pageable);
+       return page.getContent();
+    }
+
+
 }

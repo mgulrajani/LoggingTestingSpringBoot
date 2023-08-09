@@ -1,6 +1,8 @@
 package com.training.loggingtesting.training.repo;
 
 import com.training.loggingtesting.training.entities.MyMusic;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.repository.Aggregation;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
@@ -19,5 +21,8 @@ public interface IMyMusicRepo extends MongoRepository<MyMusic, String> {
             "{'$group':{_id:'$genre',total:{$sum:1}}}"
     })
     List<MyMusic> findByGenreTotal();
+
+
+    Page<MyMusic> findAll(Pageable pageable);
 
 }

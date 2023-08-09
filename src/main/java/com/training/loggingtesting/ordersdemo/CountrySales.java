@@ -1,9 +1,14 @@
 package com.training.loggingtesting.ordersdemo;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class CountrySales {
     private String country;
     private double total_sales;
 
+    public CountrySales() {
+    }
 
     public String getCountry() {
         return country;

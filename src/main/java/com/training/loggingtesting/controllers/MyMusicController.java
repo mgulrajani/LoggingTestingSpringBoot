@@ -46,7 +46,10 @@ public class MyMusicController {
 
     }
 
-
-
-
+   @GetMapping("/pages")
+    public ResponseEntity<List<MyMusic>> getPageableMusic(@RequestParam(required = false, defaultValue = "0") int pageno, @RequestParam(required = false, defaultValue = "5") int size)
+   {
+       return ResponseEntity.ok(service.findAllPages(pageno,size));
 }
+}
+
