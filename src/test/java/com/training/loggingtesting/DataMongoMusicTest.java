@@ -24,7 +24,7 @@ public class DataMongoMusicTest {
     public void findMusicByNameSpec(){
 
 
-        repo.save(new MyMusic("Aye Zindagai", Arrays.asList("Sonu Nigam"),"bollywood"));
+        //repo.save(new MyMusic("Aye Zindagai", Arrays.asList("Sonu Nigam"),"bollywood"));
         MyMusic musicFound = repo.findByName("Aye Zindagai");
         assertEquals("Aye Zindagai",musicFound.getName());
         assertEquals("bollywood",musicFound.getGenre());
